@@ -27,6 +27,9 @@ public class PrimerosBytes {
 
 	public void manipular() {
 		try {
+			// Utilizamos nuestra clase creada, que hereda de BufferedInputStream, para
+			// crear nuestro propio método read que nos ayude a realizar el ejercicio de
+			// forma más eficiente
 			byte[] lista = miClase.read(10);
 			for (int i = 0; i < lista.length; i++) {
 				System.out.println(i + ": " + lista[i]);
