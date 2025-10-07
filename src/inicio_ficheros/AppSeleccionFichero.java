@@ -64,11 +64,11 @@ public class AppSeleccionFichero {
 				File miFichero = fichero.getSelectedFile();
 				System.out.println(miFichero.getAbsolutePath());
 				String ficheroSeleccionado;
-				if(miFichero.isFile())
-					ficheroSeleccionado ="Tamaño de " + miFichero.getName() + ": " + miFichero.length() + " bytes";
+				if (miFichero.isFile())
+					ficheroSeleccionado = "Tamaño de " + miFichero.getName() + ": " + miFichero.length() + " bytes";
 				else
 					ficheroSeleccionado = miFichero.getName() + " es un directorio";
-					
+
 				lblMensaje.setText(ficheroSeleccionado);
 			}
 		});
