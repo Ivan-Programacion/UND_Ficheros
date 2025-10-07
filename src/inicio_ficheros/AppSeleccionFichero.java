@@ -7,6 +7,7 @@ import java.io.File;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Color;
@@ -33,6 +34,13 @@ public class AppSeleccionFichero {
 	 * Create the application.
 	 */
 	public AppSeleccionFichero() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setForeground(new Color(0, 0, 0));
 		frame.setBounds(800, 150, 450, 300);
@@ -45,33 +53,23 @@ public class AppSeleccionFichero {
 
 			public void actionPerformed(ActionEvent e) {
 				String ruta = "./";
-				JFileChooser ventanaSeleccionFichero = new JFileChooser(ruta);
-				// con .setFileSelecionMode(CONSTANTE_CORRERSPONDIENTE) podemos decidir que se
+				JFileChooser fichero = new JFileChooser(ruta);
+				// con .setFileSelecionMode(CONSANTE_CORRERSPONDIENTE) podemos decidir que se
 				// pueda seleccionar entre ficheros y carpetas
 				// Con FileFiltrer creas un filtro de tipos de archivos y despues con
 				// fichero.addChoosableFileFilter se añade
-				// ÚTIL: Utilizar ventanaSeleccionFichero.isFile() o
-				// ventanaSeleccionFichero.isDirectory para ver qué es
-				ventanaSeleccionFichero.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-				// .showDialog --> muestra la ventana de seleccion
-				// Devuelve un int indicando qué opción ha hecho el usuario:
-				// - APPROVE_OPTION (aceptar = 0)
-				// - CANCEL_OPTION (cancelar = 1)
-				// - ERROR_OPTION (error = -1)
-				// Si queremos abrir un archivo --> .showOpenDialog
-				// Si queremos guardar un archivo --> .showSaveDialog
-				ventanaSeleccionFichero.showDialog(null, "Abrir");
-				// .getSelectedFile() --> de la ventana, el archivo que se ha seleccionado
-				// pasamelo a un File para trabajar con el
-				File miFichero = ventanaSeleccionFichero.getSelectedFile();
+				// ÚTIL: Utilizar fichero.isFile() o fichero.isDirectory para ver qué es
+				fichero.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+				fichero.showDialog(null, "Abrir");
+				File miFichero = fichero.getSelectedFile();
 				System.out.println(miFichero.getAbsolutePath());
-				String mensaje;
+				String ficheroSeleccionado;
 				if (miFichero.isFile())
-					mensaje = "Tamaño de " + miFichero.getName() + ": " + miFichero.length() + " bytes";
+					ficheroSeleccionado = "Tamaño de " + miFichero.getName() + ": " + miFichero.length() + " bytes";
 				else
-					mensaje = miFichero.getName() + " es un directorio";
+					ficheroSeleccionado = miFichero.getName() + " es un directorio";
 
-				lblMensaje.setText(mensaje);
+				lblMensaje.setText(ficheroSeleccionado);
 			}
 		});
 		btnSeleccionarArchivo.setBounds(165, 148, 104, 30);

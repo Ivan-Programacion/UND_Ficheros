@@ -10,13 +10,12 @@ public class BuscandoFichero {
 		final boolean eliminar = false;
 		File miFichero = new File(fichero);
 		if (eliminar) {
-			if (miFichero.exists()) {
-				miFichero.delete();
+			miFichero.delete();
+			if (!miFichero.exists())
 				System.out.println("Fichero " + fichero + " eliminado.");
-			}
 		}
 		if (miFichero.exists()) {
-			System.out.println("Mi fichero elegido es: " + miFichero.getName() + " y SÍ existe.");
+			System.out.println("mi fichero elegido es: " + miFichero.getName() + " y SÍ existe.");
 			System.out.println("Su longitud es de " + miFichero.length());
 		} else {
 			if (!eliminar) {
