@@ -1,4 +1,4 @@
-package manipulacion_fichero;
+package manipulacion_fichero_lectura;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
