@@ -6,7 +6,7 @@ import java.io.IOException;
 public class BuscandoFichero {
 
 	public static void main(String[] args) {
-		String fichero = ".project";
+		String fichero = "ficheroPrueba.txt";
 		final boolean eliminar = false;
 		File miFichero = new File(fichero);
 		if (eliminar) {
